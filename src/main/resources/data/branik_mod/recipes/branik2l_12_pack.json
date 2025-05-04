@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "branik_mod:branik2l_12"
+    }
+  },
+  "result": {
+    "item": "branik_mod:branik2l_12_pack",
+    "count": 1
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "branik_mod:block/branik_12_case_top",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "branik_mod:block/branik_12_case"
+    },
+    "axis=z": {
+      "model": "branik_mod:block/branik_12_case_top",
+      "x": 90
+    }
+  }
+}

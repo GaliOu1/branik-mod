@@ -1,12 +1,10 @@
 plugins {
     id 'idea'
     id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'net.minecraftforge.gradle' version '6.0.+'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
     // Adds the Kotlin Gradle plugin
     id 'org.jetbrains.kotlin.jvm' version '2.0.0'
-    // OPTIONAL Kotlin Serialization plugin
-    //id 'org.jetbrains.kotlin.plugin.serialization' version '2.0.0'
 }
 
 version = mod_version
@@ -97,68 +95,85 @@ repositories {
         url = 'https://thedarkcolour.github.io/KotlinForForge/'
         content { includeGroup "thedarkcolour" }
     }
+
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
 }
 
-dependencies {
-    // Use the latest version of Minecraft Forge
-    minecraft "net.minecraftforge:forge:$minecraft_version-$forge_version"
+    dependencies {
+        // Use the latest version of Minecraft Forge
+        minecraft "net.minecraftforge:forge:$minecraft_version-$forge_version"
 
-    implementation "thedarkcolour:kotlinforforge:$kff_version"
-}
+        implementation "thedarkcolour:kotlinforforge:$kff_version"
+        implementation fg.deobf("curse.maven:ctm-267602:2642375")
+        implementation fg.deobf("curse.maven:jei-238222:6075247")
+        implementation fg.deobf("curse.maven:thermal-expansion-69163:5372749")
+        implementation fg.deobf("curse.maven:thermal-dynamics-227443:5372747")
+        implementation fg.deobf("curse.maven:thermal-foundation-222880:5443583")
+        implementation fg.deobf("curse.maven:cofh-core-69162:5374122")
+        implementation fg.deobf("curse.maven:pipez-443900:4916633")
+        //implementation fg.deobf("curse.maven:create-328085:6323270")
+        //implementation fg.deobf("curse.maven:jade-324717:6271651")
+        //implementation fg.deobf("curse.maven:jade-addons-583345:6274674")
+    }
 
 // This block of code expands all declared replace properties in the specified resource targets.
 // A missing property will result in an error. Properties are expanded using ${} Groovy notation.
 // When "copyIdeResources" is enabled, this will also run before the game launches in IDE environments.
 // See https://docs.gradle.org/current/dsl/org.gradle.language.jvm.tasks.ProcessResources.html
-def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
-def replaceProperties = [
-        minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
-        forge_version: forge_version, forge_version_range: forge_version_range,
-        mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
-        mod_authors: mod_authors, mod_description: mod_description
-]
-processResources {
-    inputs.properties replaceProperties
-    replaceProperties.put 'project', project
+    def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
+    def replaceProperties = [
+            minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
+            forge_version    : forge_version, forge_version_range: forge_version_range,
+            mod_id           : mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+            mod_authors      : mod_authors, mod_description: mod_description
+    ]
+    processResources {
+        inputs.properties replaceProperties
+        replaceProperties.put 'project', project
 
-    filesMatching(resourceTargets) {
-        expand replaceProperties
+        filesMatching(resourceTargets) {
+            expand replaceProperties
+        }
     }
-}
 
-compileKotlin {
-    kotlinOptions.jvmTarget = "17"
-}
-
-jar {
-    manifest {
-        attributes([
-                'Specification-Title'     : mod_id,
-                'Specification-Vendor'    : mod_authors,
-                'Specification-Version'   : "1", // We are version 1 of ourselves
-                'Implementation-Title'    : project.name,
-                'Implementation-Version'  : project.jar.archiveVersion,
-                'Implementation-Vendor'   : mod_authors,
-                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-        ])
+    compileKotlin {
+        kotlinOptions.jvmTarget = "17"
     }
-}
 
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
-}
+    jar {
+        manifest {
+            attributes([
+                    'Specification-Title'     : mod_id,
+                    'Specification-Vendor'    : mod_authors,
+                    'Specification-Version'   : "1", // We are version 1 of ourselves
+                    'Implementation-Title'    : project.name,
+                    'Implementation-Version'  : project.jar.archiveVersion,
+                    'Implementation-Vendor'   : mod_authors,
+                    'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+            ])
+        }
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+    }
 
 // The below is only required if using 'maven-publish' and you want to publish to maven or use JitPack
-jar.finalizedBy('reobfJar')
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact jar
+    jar.finalizedBy('reobfJar')
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                artifact jar
+            }
+        }
+        repositories {
+            maven {
+                url "file://${project.projectDir}/mcmodsrepo"
+            }
         }
     }
-    repositories {
-        maven {
-            url "file://${project.projectDir}/mcmodsrepo"
-        }
-    }
-}

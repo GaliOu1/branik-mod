@@ -1,0 +1,9 @@
+{
+	"parent": "minecraft:block/orientable",
+	"textures": {
+		"front": "branik_mod:block/branik_engine_front_on",
+		"side": "branik_mod:block/branik_engine_side",
+		"top": "branik_mod:block/branik_engine_top",
+		"bottom": "branik_mod:block/branik_engine_bottom"
+	}
+}

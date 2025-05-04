@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "branik_mod:block/branik_18_case_top",
+    "side": "branik_mod:block/branik_18_case"
+  }
+}

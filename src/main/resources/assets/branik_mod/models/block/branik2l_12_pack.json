@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "branik_mod:block/branik2l_12_pack"
+  }
+}

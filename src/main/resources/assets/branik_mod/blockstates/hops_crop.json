@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "age=0": { "model": "branik_mod:block/hops_crop_stage0" },
+    "age=1": { "model": "branik_mod:block/hops_crop_stage1" },
+    "age=2": { "model": "branik_mod:block/hops_crop_stage2" },
+    "age=3": { "model": "branik_mod:block/hops_crop_stage3" },
+    "age=4": { "model": "branik_mod:block/hops_crop_stage4" },
+    "age=5": { "model": "branik_mod:block/hops_crop_stage5" },
+    "age=6": { "model": "branik_mod:block/hops_crop_stage6" },
+    "age=7": { "model": "branik_mod:block/hops_crop_stage7" }
+  }
+}

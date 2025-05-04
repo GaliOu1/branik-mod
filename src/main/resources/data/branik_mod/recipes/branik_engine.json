@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iii",
+    "b1b",
+    "ccc"
+  ],
+  "key": {
+    "i": {"item": "minecraft:iron_ingot"},
+    "b": {"item": "minecraft:barrel"},
+    "1": {"item": "branik_mod:branik_11"},
+    "c": {"item": "minecraft:cobblestone"}
+  },
+  "result": {
+    "item": "branik_mod:branik_engine",
+    "count": 1
+  }
+}

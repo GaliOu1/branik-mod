@@ -1,0 +1,27 @@
+{
+  "item.branik_mod.branik_bottle": "Branik bottle",
+  "item.branik_mod.two_elco_bottle": "Two Elco bottle",
+  "item.branik_mod.branik_cap": "Bottle cap",
+  "item.branik_mod.branik_label": "Branik label",
+  "item.branik_mod.branik_11": "Branik 11°",
+  "item.branik_mod.branik_12": "Branik 12°",
+  "item.branik_mod.branik2l_11": "Branik2L 11°",
+  "item.branik_mod.branik2l_12": "Branik2L 12°",
+
+  "block.branik_mod.branik_11_case": "Branik 11° Case",
+  "block.branik_mod.branik_12_case": "Branik 12° Case",
+  "block.branik_mod.branik2l_11_pack": "Branik2L 11° Pack",
+  "block.branik_mod.branik2l_12_pack": "Branik2L 12° Pack",
+
+
+  "effect.branik_mod.drunken": "Drunkenness",
+
+  "creativetab.branik_mod": "Branik",
+
+
+  "fluid.branik_mod.branik11": "Branik °11",
+  "fluid.branik_mod.branik12": "Branik °12",
+  "fluid.branik_mod.branik14": "Branik °14",
+  "fluid.branik_mod.branik18": "Branik °18"
+
+}

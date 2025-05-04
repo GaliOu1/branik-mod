@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "still": "branik_mod:fluid/beer14_still",
+    "flow": "branik_mod:fluid/beer14_flow"
+  }
+}

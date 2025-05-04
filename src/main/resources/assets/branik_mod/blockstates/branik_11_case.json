@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "branik_mod:block/branik_11_case"
+    },
+    "axis=y": {
+      "model": "branik_mod:block/branik_11_case",
+      "textures": {
+        "end": "branik_mod:block/branik_11_case_top"
+      }
+    },
+    "axis=z": {
+      "model": "branik_mod:block/branik_11_case"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "branik_mod:branik_12"
+    }
+  },
+  "result": {
+    "item": "branik_mod:branik_12_case",
+    "count": 1
+  }
+}
